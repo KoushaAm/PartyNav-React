@@ -1,0 +1,76 @@
+.header {
+    background-color: #f43f5e;
+    color: #ffffff;
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+  }
+  
+
+  .btn-Home {
+    background-color: #f5ed0f;
+    color: #000000;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border: 1px solid #ffffff;
+    border-radius: 0.25rem;
+    transition: background-color 0.3s, color 0.3s;
+    text-decoration: none; 
+    margin-right: 0.5rem;
+  }
+  
+  .btn-Home:hover {
+    background-color: transparent;
+    color: #1f2937;
+  }
+
+  .btn-signin {
+    background-color: transparent;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border: 1px solid #ffffff;
+    border-radius: 0.25rem;
+    transition: background-color 0.3s, color 0.3s;
+    text-decoration: none; 
+    margin-right: 0.5rem;
+  }
+  
+  .btn-signin:hover {
+    background-color: #ffffff;
+    color: #1f2937;
+  }
+  
+  .btn-register {
+    background-color: #ffffff;
+    color: #1f2937;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    margin-right: 0.5rem;
+  }
+  
+  @media (max-width: 768px) {
+    .header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .title {
+      margin-bottom: 1rem;
+    }
+  
+    .btn-signin,
+    .btn-register {
+      margin-top: 0.5rem;
+    }
+  }
+  

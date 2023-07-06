@@ -1,0 +1,62 @@
+.make-event-container {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f7f7f7;
+  }
+  
+  .make-event-box {
+    width: 80%;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .make-event-box h1 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+  
+  .make-event-box form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .make-event-box label {
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  .make-event-box input,
+  .make-event-box textarea {
+    padding: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .make-event-box textarea {
+    resize: vertical; 
+    min-height: 100px; 
+    max-width: 100%; 
+    
+  }
+  
+  .make-event-box button {
+    padding: 12px 20px;
+    background-color: #d03f1f;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .make-event-box button:hover {
+    background-color: #f19f8d;
+  }
+  

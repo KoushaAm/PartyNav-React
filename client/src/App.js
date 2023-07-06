@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-rou
 import Login from './pages/login';
 import Signup from './pages/signup';
 import Home from './pages/Home';
+import MakeEvent from './pages/makeEvent';
 import Header from './components/header';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
           <Route path= "/Home" element={<Home />} />
           <Route path= "/Login" element={<Login />} />
           <Route path= "/signup" element={<Signup />} />
+          <Route path= "/makeEvent" element={<MakeEvent />} />
 
         </Routes>
       </BrowserRouter>

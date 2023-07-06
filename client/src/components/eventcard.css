@@ -5,4 +5,10 @@
                 -20px -20px 60px #ffffff;
     padding: 30px;
     width: 80%;
+    padding: 20 px;
 }
+.event-card__info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }

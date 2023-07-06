@@ -80,6 +80,54 @@ app.post("/register", (req, res) => {
     }
 });
 
+app.post("/makeEvent", (req, res) => {
+    try {
+        const { organizer, title, description, date, time, address } = req.body;
+        console.log(organizer, title, description, date, time, address);
+        const eventSnapshot = db.ref('Events/' + title).once('value');
+        const eventData = eventSnapshot.val;
+
+        if (eventData) {
+
+            res.send("Event already exists");
+        } else {
+          db.ref('Events/' + title).set({
+            organizer: organizer,
+            title: title,
+            description: description,
+            date: date,
+            time: time,
+            address: address
+          });
+          res.send(200);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+});
+
+
+app.get("/getEvents", (req, res) => {
+  try {
+    const eventSnapshot = db.ref('Events').once('value');
+    eventSnapshot.then((snapshot) => {
+      const eventData = snapshot.val();
+      const eventList = Object.values(eventData);
+      // send eventlis and success response
+      res.send(eventList);
+
+      
+    
+    }).catch((error) => {
+      console.log(error);
+      res.sendStatus(500); 
+    });
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(500); 
+  }
+});
+
 app.listen(4000, () => {
   console.log('Server is running on port 4000');
 });

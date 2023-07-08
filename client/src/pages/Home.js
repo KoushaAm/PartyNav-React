@@ -18,13 +18,6 @@ function Home() {
   const location = useLocation();
   const { user } = location.state;
 
-  const dummyEvent = new Event(
-    "Block Party",
-    "DJ and Drinks with friends",
-    "July 5th",
-    "9:00 pm - 2:00 am",
-    "Vancouver, BC"
-  );
 
   // fetch all the events by calling getEvetns from server
   // render all the events in the event card
@@ -53,7 +46,7 @@ function Home() {
           <h1>Events</h1>
           <div className="event-card-container"> 
             {events.map((event, index) => (
-              <EventCard key={index} style ={{marginTop: "30px"}} event={event} className="event-card" /> 
+              <EventCard key={index} style ={{marginTop: "30px"}} event={event} user={user}  className="event-card" /> 
             ))}
           </div>
         </div>

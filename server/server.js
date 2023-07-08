@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 
+const Event = require('./models/event');
+
 app.use(bodyParser.json());
 
 
@@ -18,7 +20,7 @@ admin.initializeApp({
   databaseURL: "https://partynav-db-default-rtdb.firebaseio.com"
 });
 
-// get an instanceof the database
+// get an instance of the database
 var db = admin.database();
 
 
@@ -83,6 +85,8 @@ app.post("/register", (req, res) => {
 app.post("/makeEvent", (req, res) => {
     try {
         const { organizer, title, description, date, time, address } = req.body;
+        // const Event = new Event(organizer, title, description, date, time, address, []);
+
         console.log(organizer, title, description, date, time, address);
         const eventSnapshot = db.ref('Events/' + title).once('value');
         const eventData = eventSnapshot.val;
@@ -97,7 +101,8 @@ app.post("/makeEvent", (req, res) => {
             description: description,
             date: date,
             time: time,
-            address: address
+            address: address,
+            messages: ['hi']
           });
           res.send(200);
         }
@@ -113,7 +118,6 @@ app.get("/getEvents", (req, res) => {
     eventSnapshot.then((snapshot) => {
       const eventData = snapshot.val();
       const eventList = Object.values(eventData);
-      // send eventlis and success response
       res.send(eventList);
 
       
@@ -126,6 +130,9 @@ app.get("/getEvents", (req, res) => {
     console.log(error);
     res.sendStatus(500); 
   }
+});
+
+app.post("/updateMessages", (req, res) => {
 });
 
 app.listen(4000, () => {

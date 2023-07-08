@@ -1,13 +1,24 @@
 import React from 'react';
 import './eventcard.css';
+import { Link , useNavigate} from 'react-router-dom';
 import { FaUser, FaCalendarAlt, FaClock, FaMapMarkerAlt } from 'react-icons/fa';
 
-function EventCard({ event }) {
+function EventCard({ event , user}) {
   const { title, organizer, description, date, time, address } = event;
+
+  const navigate = useNavigate();
+
+  const handleView = () => {
+    navigate('/event', { state: { event, user } });
+  };
+  
 
   return (
     <div className="event-card">
-      <h3 className="event-card__title">{title}</h3>
+      <div className="event-card__header">
+        <h3 className="event-card__title">{title}</h3>
+          <button className="event-card__button" onClick = {handleView}>View</button>
+      </div>
       <p className="event-card__info">
         <FaUser className="event-card__icon" />
         {organizer}
@@ -18,10 +29,10 @@ function EventCard({ event }) {
         {date}
       </p>
       
-      <p className="event-card__info">
-        <FaClock className="event-card__icon" />
-        {time}
-      </p>
+        <p className="event-card__info">
+          <FaClock className="event-card__icon" />
+          {time}
+        </p>
       <p className="event-card__info">
         <FaMapMarkerAlt className="event-card__icon" />
         {address}

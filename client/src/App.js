@@ -4,7 +4,9 @@ import Login from './pages/login';
 import Signup from './pages/signup';
 import Home from './pages/Home';
 import MakeEvent from './pages/makeEvent';
+import EventPage from './pages/Event';
 import Header from './components/header';
+
 
 function App() {
   return (
@@ -16,6 +18,7 @@ function App() {
           <Route path= "/Login" element={<Login />} />
           <Route path= "/signup" element={<Signup />} />
           <Route path= "/makeEvent" element={<MakeEvent />} />
+          <Route path= "/event" element={<EventPage />} />
 
         </Routes>
       </BrowserRouter>

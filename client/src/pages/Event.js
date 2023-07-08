@@ -13,7 +13,7 @@ function EventPage() {
   const handleSendMessage = (e) => {
     e.preventDefault();
     if (newMessage.trim() === '') return;
-    const message = { user: user.username, content: newMessage }; // Assuming the user is 'John' for demonstration purposes
+    const message = { user: user.username, content: newMessage }; 
     setChatMessages((prevMessages) => [...prevMessages, message]);
     setNewMessage('');
   };

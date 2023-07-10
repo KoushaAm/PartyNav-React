@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 
 const Event = require('./models/event');
+const Message = require('./models/message');
 
 app.use(bodyParser.json());
 
@@ -70,15 +71,19 @@ app.post("/register", (req, res) => {
           const user = new User(userData.username, userData.email, userData.password);
           res.send(user);
         } else {
-          res.sendStatus(401); // unauthorized access
+
+          // unauthorized access
+          res.sendStatus(401); 
         }
       }).catch((error) => {
         console.log(error);
-        res.sendStatus(500); // internal server error
+        // internal server error
+        res.sendStatus(500); 
       });
     } catch (error) {
       console.log(error);
-      res.sendStatus(500); // internal server error
+      // internal server error
+      res.sendStatus(500); 
     }
 });
 
@@ -132,8 +137,52 @@ app.get("/getEvents", (req, res) => {
   }
 });
 
-app.post("/updateMessages", (req, res) => {
+
+
+app.post ("/sendMessage", (req, res) => {
+  try {
+    const { sender , message, event } = req.body;
+    const msg = new Message(sender, message);
+
+    console.log(msg.sender, msg.message);
+
+    // get ref
+    const eventMessagesRef = db.ref('Events/' + event.title + '/messages');
+
+    eventMessagesRef.push(msg);
+
+    res.sendStatus(200); 
+
+  } catch (error) {
+    console.log(error);
+  }
+}); 
+
+
+app.get("/getMessages", (req, res) => {
+  try {
+    //  the event title in the api link 
+    const { eventTitle } = req.query;
+
+    const eventMessagesRef = db.ref('Events/' + eventTitle + '/messages');
+    eventMessagesRef.once('value')
+      .then((snapshot) => {
+        const messagesData = snapshot.val();
+        const messagesList = Object.values(messagesData || {});
+        res.send(messagesList);
+      })
+      .catch((error) => {
+        console.log(error);
+        res.sendStatus(500);
+      });
+      
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(500);
+  }
 });
+
+
 
 app.listen(4000, () => {
   console.log('Server is running on port 4000');

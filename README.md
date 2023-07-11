@@ -18,7 +18,9 @@ Node.js: A JavaScript runtime environment for server-side development.
 
 Firebase: A cloud-based platform for building web and mobile applications with real-time data storage and synchronization.
 
-<img width="1436" alt="Screenshot 2023-07-07 at 10 29 02 PM" src="https://github.com/KoushaAm/PartyNav-React/assets/67440795/5f7b36de-06b1-4753-9c61-b4d68725af98">
+![image](https://github.com/KoushaAm/PartyNav-React/assets/67440795/29ce8d6e-a6f4-40f9-ae0f-63c774fabb1d)
+
+![image](https://github.com/KoushaAm/PartyNav-React/assets/67440795/9010ac42-af19-40ad-90f7-c50525281123)
 
 
 
